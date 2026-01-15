@@ -1,0 +1,30 @@
+
+================================================================================
+EXPLORATORY DATA ANALYSIS - KEY INSIGHTS
+================================================================================
+
+1. AGE GROUP DISTRIBUTION:
+   - Adults (18+): 36,284 (3.3%)
+   - Youth (5-17): 346,153 (31.6%)
+   - Children (0-5): 713,706 (65.1%)
+
+2. GEOGRAPHIC CONCENTRATION:
+   - Total states covered: 48
+   - Total districts covered: 922
+   - Top state: Uttar Pradesh (204,774 enrolments)
+
+3. TEMPORAL PATTERNS:
+   - Date range: 2025-03-09 00:00:00 to 2025-12-31 00:00:00
+   - Average daily enrolments: 12,456
+   - Peak day: 2025-07-01 00:00:00 (132,479 enrolments)
+   
+4. UPDATE ACTIVITY:
+   - Total demographic updates: 9,407,318
+   - Total biometric updates: 13,890,793
+   - Demo/Bio ratio: 0.68
+
+5. SEASONALITY:
+   - Highest month: Jul
+   - Lowest month: Oct
+
+================================================================================
