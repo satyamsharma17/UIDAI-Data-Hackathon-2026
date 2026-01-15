@@ -1,0 +1,229 @@
+# UIDAI Data Hackathon 2026 - Configuration File
+
+# Project Metadata
+project:
+  name: "UIDAI Data Hackathon 2026"
+  version: "2.0.0"
+  author: "Analytics Team"
+  date: "2026-01-15"
+
+# Data Paths
+data:
+  input:
+    enrolment: "api_data_aadhar_enrolment/"
+    demographic: "api_data_aadhar_demographic/"
+    biometric: "api_data_aadhar_biometric/"
+  
+  output:
+    processed: "outputs/processed_data/"
+    figures: "outputs/figures/"
+    reports: "outputs/reports/"
+    dashboards: "outputs/dashboards/"
+
+# Processing Configuration
+processing:
+  sample_rate: 0.2  # 20% sample for testing, 1.0 for production
+  random_seed: 42
+  chunk_size: 50000
+  parallel_workers: 4
+
+# Analysis Parameters
+analysis:
+  # Temporal Analysis
+  temporal:
+    forecast_horizon: 30  # days
+    confidence_interval: 0.95
+    seasonal_period: 7  # weekly seasonality
+  
+  # Spatial Analysis
+  spatial:
+    top_n_states: 20
+    top_n_districts: 50
+    min_records_per_location: 100
+  
+  # Anomaly Detection
+  anomaly:
+    contamination: 0.05  # 5% expected anomalies
+    n_estimators: 100
+    z_threshold: 3.0
+    iqr_multiplier: 1.5
+
+# Innovative Metrics Configuration
+metrics:
+  # Aadhaar Health Index
+  ahi:
+    weights:
+      coverage: 0.30
+      velocity: 0.25
+      quality: 0.25
+      accessibility: 0.20
+    thresholds:
+      excellent: 80
+      good: 60
+      fair: 40
+  
+  # Digital Inclusion Score
+  dis:
+    weights:
+      digital_rate: 0.40
+      demographic_parity: 0.30
+      geographic_spread: 0.30
+    thresholds:
+      highly_inclusive: 80
+      moderately_inclusive: 60
+      developing: 40
+  
+  # Service Accessibility Index
+  sai:
+    weights:
+      load_balance: 0.35
+      geographic_coverage: 0.35
+      service_density: 0.30
+    thresholds:
+      highly_accessible: 80
+      accessible: 60
+      moderately_accessible: 40
+
+# ROI Calculation Parameters
+roi:
+  costs:
+    implementation: 2500000  # ₹25 Lakhs
+    annual_maintenance: 500000  # ₹5 Lakhs/year
+    avg_annual_salary: 600000  # ₹6 Lakhs
+  
+  assumptions:
+    manual_processing_minutes: 2.0
+    automated_processing_minutes: 0.1
+    manual_error_rate: 0.15
+    automated_error_rate: 0.02
+    cost_per_error: 500
+
+# Visualization Settings
+visualization:
+  style: "seaborn-v0_8-darkgrid"
+  figsize:
+    small: [10, 6]
+    medium: [14, 8]
+    large: [16, 10]
+  dpi: 300
+  color_palette:
+    primary: "#3A86FF"
+    secondary: "#FB5607"
+    success: "#06D6A0"
+    warning: "#FFD60A"
+    danger: "#EF476F"
+
+# Dashboard Configuration
+dashboard:
+  refresh_rate: 60  # seconds
+  kpi_cards: 4
+  max_chart_points: 1000
+  export_formats: ["html", "png", "pdf"]
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/analysis.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+
+# Performance Settings
+performance:
+  cache_enabled: true
+  cache_dir: "cache/"
+  memory_limit_gb: 8
+  timeout_seconds: 300
+
+# Quality Thresholds
+quality:
+  min_completeness: 0.90  # 90% completeness required
+  max_duplicate_rate: 0.02  # Max 2% duplicates
+  min_validity_score: 0.95  # 95% validity required
+  data_quality_threshold: 94.0  # Overall quality score
+
+# Feature Engineering
+features:
+  age_bins: [0, 18, 30, 45, 60, 100]
+  age_labels: ["0-18", "19-30", "31-45", "46-60", "60+"]
+  
+  # Derived features to create
+  create_features:
+    - "day_of_week"
+    - "month"
+    - "quarter"
+    - "is_weekend"
+    - "age_group"
+    - "days_since_first_update"
+    - "update_count"
+
+# Statistical Tests
+statistics:
+  alpha: 0.05  # Significance level
+  effect_size_thresholds:
+    cramers_v:
+      small: 0.10
+      medium: 0.30
+      large: 0.50
+    eta_squared:
+      small: 0.01
+      medium: 0.06
+      large: 0.14
+    cohens_d:
+      small: 0.20
+      medium: 0.50
+      large: 0.80
+
+# Model Training
+models:
+  train_test_split: 0.8
+  validation_split: 0.1
+  cross_validation_folds: 5
+  grid_search_cv: 3
+  
+  # Forecasting models
+  forecasting:
+    - "naive"
+    - "moving_average"
+    - "seasonal_naive"
+    - "simple_exponential_smoothing"
+    - "double_exponential_smoothing"
+    - "triple_exponential_smoothing"
+    - "arima"
+
+# Report Generation
+reports:
+  pdf:
+    template: "templates/report_template.html"
+    page_size: "A4"
+    orientation: "portrait"
+    margin:
+      top: "1cm"
+      bottom: "1cm"
+      left: "1cm"
+      right: "1cm"
+  
+  sections:
+    - "executive_summary"
+    - "data_overview"
+    - "temporal_analysis"
+    - "spatial_analysis"
+    - "anomaly_detection"
+    - "predictive_modeling"
+    - "innovative_metrics"
+    - "roi_analysis"
+    - "recommendations"
+
+# Environment
+environment:
+  python_version: "3.9+"
+  required_packages:
+    - "pandas>=2.1.0"
+    - "numpy>=1.26.0"
+    - "matplotlib>=3.8.0"
+    - "seaborn>=0.13.0"
+    - "plotly>=5.18.0"
+    - "scikit-learn>=1.3.0"
+    - "statsmodels>=0.14.0"
+    - "scipy>=1.11.0"
+    - "pyyaml>=6.0"
